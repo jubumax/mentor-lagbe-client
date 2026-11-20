@@ -3,6 +3,7 @@ import { fontBody, fontDisplay } from "@/lib/fonts";
 import { themeInitScript } from "@/lib/theme-script";
 import { SITE } from "@/lib/constants";
 import { ThemeProvider } from "@/providers/ThemeProvider";
+import { AuthProvider } from "@/providers/AuthProvider";
 import ToastProvider from "@/providers/ToastProvider";
 
 export const metadata = {
@@ -22,13 +23,19 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
       className={`${fontDisplay.variable} ${fontBody.variable}`}
     >
+
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
+
       <body className="flex min-h-dvh flex-col">
         <ThemeProvider>
-          {children}
-          <ToastProvider />
+
+          <AuthProvider>
+            {children}
+            <ToastProvider />
+          </AuthProvider>
+
         </ThemeProvider>
       </body>
     </html>
