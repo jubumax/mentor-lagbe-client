@@ -25,3 +25,22 @@ export function validateSignUp({ name, email, password }) {
 
     return errors;
 }
+
+
+export function validateSignIn({ email, password }) {
+    const errors = {};
+
+    if (!email.trim()) {
+        errors.email = "Please enter your email address";
+    } else if (!EMAIL_PATTERN.test(email.trim())) {
+        errors.email = "Enter a valid email address";
+    }
+
+    if (!password) {
+        errors.password = "Please enter your password";
+    } else if (password.length < PASSWORD_MIN_LENGTH) {
+        errors.password = `Password must be at least ${PASSWORD_MIN_LENGTH} characters`;
+    }
+
+    return errors;
+}

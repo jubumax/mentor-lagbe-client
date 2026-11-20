@@ -10,6 +10,7 @@ export const SITE = {
 };
 
 export const API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:5000";
+export const ENABLE_GOOGLE_LOGIN = process.env.NEXT_PUBLIC_GOOGLE_AUTH === "true";
 
 export const ROLES = {
   STUDENT: "student",
