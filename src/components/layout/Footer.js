@@ -97,7 +97,9 @@ export default function Footer() {
 
                                 <li className="flex items-start gap-3">
                                     <MapPin className="mt-0.5 size-[18px] shrink-0 text-accent" aria-hidden="true" />
-                                    {SITE.location}
+                                    <a
+                                        href='https://jubumax.vercel.app'
+                                        className="transition-colors hover:text-white">{SITE.location} </a>
                                 </li>
                             </ul>
 
@@ -106,8 +108,14 @@ export default function Footer() {
 
                     <div className="mt-12 flex flex-col gap-2 border-t border-white/15 pt-6 text-sm text-white/65 sm:flex-row sm:items-center sm:justify-between">
                         <p>
-                            &copy; {new Date().getFullYear()} {SITE.name}. All rights reserved.
+                            &copy; {new Date().getFullYear()} <a
+                                href={'/'}
+                                className="transition-colors hover:text-white"
+                            >
+                                {SITE.name}
+                            </a> | All rights reserved
                         </p>
+
                         <p>Built for learners and tutors across Bangladesh.</p>
                     </div>
 
