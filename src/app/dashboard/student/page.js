@@ -1,13 +1,7 @@
-import PageHeader from "@/components/dashboard/PageHeader";
+import StudentOverview from "@/components/dashboard/StudentOverview";
 
 export const metadata = { title: "Student overview" };
 
-
 export default function StudentOverviewPage() {
-    return (
-        <PageHeader
-            title="Student dashboard"
-            description="Users overview and applications will appear here."
-        />
-    );
+    return <StudentOverview />;
 }
