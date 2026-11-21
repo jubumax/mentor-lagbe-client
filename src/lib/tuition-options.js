@@ -34,3 +34,12 @@ export const SORT_OPTIONS = [
     { value: "fee_asc", label: "Fee: low to high" },
     { value: "fee_desc", label: "Fee: high to low" },
 ];
+
+
+export const SCHEDULE_OPTIONS = [
+    "Flexible / discuss with the tutor",
+    "Morning (6 AM - 11 AM)",
+    "Afternoon (12 PM - 4 PM)",
+    "Evening (5 PM - 9 PM)",
+    "Weekends only",
+];
