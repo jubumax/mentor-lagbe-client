@@ -1,7 +1,8 @@
-import { CloudOff, SearchX } from "lucide-react";
+import { CloudOff, FileQuestion, SearchX } from "lucide-react";
 import EmptyState from "@/components/ui/EmptyState";
 import Button from "@/components/ui/Button";
 import TuitionGrid from "@/components/tuition/TuitionGrid";
+import Pagination from "@/components/tuition/Pagination";
 import { api, toQueryString } from "@/lib/api";
 
 
@@ -25,6 +26,22 @@ export default async function TuitionResults({ query }) {
     const { tuitions = [], pagination } = data;
 
     if (tuitions.length === 0) {
+        if (pagination?.total > 0) {
+            const { page: _ignored, ...rest } = query;
+
+            return (
+                <EmptyState
+                    icon={FileQuestion}
+                    title="That page doesn't exist"
+                    description="You've gone past the last page of results."
+                >
+                    <Button href={`/tuitions${toQueryString(rest)}`} variant="outline">
+                        Back to the first page
+                    </Button>
+                </EmptyState>
+            );
+        }
+
         return (
             <EmptyState
                 icon={SearchX}
@@ -39,15 +56,22 @@ export default async function TuitionResults({ query }) {
     }
 
 
+    const first = (pagination.page - 1) * pagination.limit + 1;
+    const last = first + tuitions.length - 1;
+
     return (
         <>
             <p className="mb-5 text-sm text-muted">
-                Showing <span className="font-semibold text-ink">{tuitions.length}</span> of{" "}
-                <span className="font-semibold text-ink">{pagination?.total ?? tuitions.length}</span>{" "}
-                tuitions
+                Showing{" "}
+                <span className="font-semibold text-ink">
+                    {first}-{last}
+                </span>{" "}
+
+                of <span className="font-semibold text-ink">{pagination.total}</span> tuitions
             </p>
 
             <TuitionGrid tuitions={tuitions} />
+            <Pagination pagination={pagination} query={query} basePath="/tuitions" />
         </>
     );
 }
