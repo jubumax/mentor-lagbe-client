@@ -24,3 +24,9 @@ export function getInitials(name = "") {
 
     return (first + last).toUpperCase();
 }
+
+
+export function formatFee(amount) {
+    const number = Number(amount);
+    return `৳${(Number.isFinite(number) ? number : 0).toLocaleString("en-US")}`;
+}

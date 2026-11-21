@@ -88,7 +88,7 @@ export default function HeroVisual() {
 
                     <div className="mt-4 flex items-center justify-between">
                         <p className="text-lg font-extrabold text-ink">
-                            $25<span className="text-xs font-medium text-muted"> /month</span>
+                            ৳ 2,500<span className="text-xs font-medium text-muted"> /month</span>
                         </p>
                         <span className="rounded-full bg-primary-soft px-3 py-1.5 text-xs font-semibold text-link">
                             Online
