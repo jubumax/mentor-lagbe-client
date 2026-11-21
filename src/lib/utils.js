@@ -30,3 +30,14 @@ export function formatFee(amount) {
     const number = Number(amount);
     return `৳${(Number.isFinite(number) ? number : 0).toLocaleString("en-US")}`;
 }
+
+
+export function formatDate(value) {
+    const date = new Date(value);
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+    });
+}
