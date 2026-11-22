@@ -116,3 +116,24 @@ export function validateTuition(values) {
 
     return errors;
 }
+
+
+export const BIO_MAX_LENGTH = 500;
+
+export function validateProfile({ name, phone, bio }) {
+    const errors = {};
+
+    if (name.trim().length < 2) {
+        errors.name = "Name must be at least 2 characters";
+    }
+
+    if (phone.trim() && !PHONE_PATTERN.test(phone.trim())) {
+        errors.phone = "Enter a valid phone number";
+    }
+
+    if (bio.trim().length > BIO_MAX_LENGTH) {
+        errors.bio = `Bio can be at most ${BIO_MAX_LENGTH} characters`;
+    }
+
+    return errors;
+}
