@@ -41,3 +41,12 @@ export function formatDate(value) {
         year: "numeric",
     });
 }
+
+
+// Stripe payments and Pro plans are in US dollars! (e.g. 15 => $15)
+export function formatUsd(amount) {
+    const number = Number(amount);
+    return `$${(Number.isFinite(number) ? number : 0).toLocaleString("en-US", {
+        maximumFractionDigits: 2,
+    })}`;
+}
