@@ -4,12 +4,16 @@ import { useState } from "react";
 import Button from "@/components/ui/Button";
 import PlanCard from "@/components/pricing/PlanCard";
 import ProPlanAction from "@/components/pricing/ProPlanAction";
+import { useAuth } from "@/hooks/useAuth";
 import { PLANS } from "@/data/plans";
 import { cn } from "@/lib/utils";
 
 
 export default function PricingPlans({ initialAudience = "tutor" }) {
-    const [audience, setAudience] = useState(initialAudience);
+    const { isAuthenticated, role } = useAuth();
+    const [choice, setChoice] = useState(null);
+
+    const audience = choice ?? (role === "student" ? "student" : initialAudience);
     const { free, pro } = PLANS[audience];
 
     return (
@@ -27,7 +31,7 @@ export default function PricingPlans({ initialAudience = "tutor" }) {
                         id={`plan-tab-${key}`}
                         aria-selected={audience === key}
                         aria-controls="plan-panel"
-                        onClick={() => setAudience(key)}
+                        onClick={() => setChoice(key)}
                         className={cn(
                             "rounded-full px-5 py-2 text-sm font-semibold transition-colors",
                             audience === key
@@ -50,9 +54,15 @@ export default function PricingPlans({ initialAudience = "tutor" }) {
                 <PlanCard
                     plan={free}
                     action={
-                        <Button href="/sign-up" variant="outline" size="lg" className="w-full">
-                            Get started free
-                        </Button>
+                        isAuthenticated ? (
+                            <Button href="/dashboard" variant="outline" size="lg" className="w-full">
+                                Go to your dashboard
+                            </Button>
+                        ) : (
+                            <Button href="/sign-up" variant="outline" size="lg" className="w-full">
+                                Get started free
+                            </Button>
+                        )
                     }
                 />
 
