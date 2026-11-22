@@ -21,7 +21,6 @@ import StatusBadge from "@/components/ui/StatusBadge";
 import { useApi } from "@/hooks/useApi";
 import { api, ApiError } from "@/lib/api";
 import { cn, formatFee } from "@/lib/utils";
-import Image from "next/image";
 
 
 const iconButton =
@@ -85,7 +84,8 @@ export default function MyTuitions() {
 
                     <div className="size-12 shrink-0 overflow-hidden rounded-xl bg-primary-soft">
                         {row.bannerImage ? (
-                            <Image src={row.bannerImage} alt="" className="size-full object-cover" />
+                            // eslint-disable-next-line @next/next/no-img-element
+                            <img src={row.bannerImage} alt="" className="size-full object-cover" />
                         ) : (
                             <span className="flex size-full items-center justify-center text-link">
                                 <BookOpen className="size-5" aria-hidden="true" />

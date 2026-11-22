@@ -1,5 +1,4 @@
 import { cn, getInitials } from "@/lib/utils";
-import Image from "next/image";
 
 
 export default function Avatar({ user, className }) {
@@ -7,7 +6,8 @@ export default function Avatar({ user, className }) {
 
     if (user?.image) {
         return (
-            <Image
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
                 src={user.image}
                 alt={name}
                 referrerPolicy="no-referrer"

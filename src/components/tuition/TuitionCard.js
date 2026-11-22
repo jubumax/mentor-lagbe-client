@@ -11,7 +11,6 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Avatar from "@/components/ui/Avatar";
 import { formatFee } from "@/lib/utils";
-import Image from "next/image";
 
 
 export default function TuitionCard({ tuition }) {
@@ -37,7 +36,8 @@ export default function TuitionCard({ tuition }) {
             <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-primary-soft">
 
                 {bannerImage ? (
-                    <Image
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
                         src={bannerImage}
                         alt=""
                         loading="lazy"

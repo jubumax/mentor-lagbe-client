@@ -4,7 +4,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { ImagePlus, Trash2 } from "lucide-react";
 import Button from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
 
 
 export default function ImageUploader({
@@ -39,8 +38,8 @@ export default function ImageUploader({
 
             {shown ? (
                 <div className="overflow-hidden rounded-control border border-line bg-surface-2">
-
-                    <Image src={shown} alt="Banner preview" className="aspect-[16/7] w-full object-cover" />
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img src={shown} alt="Banner preview" className="aspect-[16/7] w-full object-cover" />
 
                     <div className="flex items-center justify-between gap-3 border-t border-line bg-surface p-3">
                         <p className="min-w-0 truncate text-xs text-muted">

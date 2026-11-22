@@ -32,7 +32,7 @@ export default function PlanCard({ plan, highlighted = false, action }) {
                         highlighted ? "text-white" : "text-ink"
                     )}
                 >
-                    ৳ {price}
+                    ${price}
                 </span>
 
                 <span className={cn("text-sm", highlighted ? "text-white/70" : "text-muted")}>

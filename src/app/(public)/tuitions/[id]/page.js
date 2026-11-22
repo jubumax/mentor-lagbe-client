@@ -15,7 +15,6 @@ import TutorSummary from "@/components/tuition/TutorSummary";
 import ApplyPanel from "@/components/tuition/ApplyPanel";
 import { api, ApiError } from "@/lib/api";
 import { formatDate, formatFee } from "@/lib/utils";
-import Image from "next/image";
 
 
 async function getTuition(id) {
@@ -82,7 +81,8 @@ export default async function TuitionDetailsPage({ params }) {
                         <div className="aspect-[16/8]">
 
                             {tuition.bannerImage ? (
-                                <Image
+                                // eslint-disable-next-line @next/next/no-img-element
+                                <img
                                     src={tuition.bannerImage}
                                     alt={`Banner for ${tuition.title}`}
                                     className="size-full object-cover"

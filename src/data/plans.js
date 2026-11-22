@@ -14,7 +14,7 @@ export const PLANS = {
         },
         pro: {
             name: "Pro Tutor",
-            price: 1500,
+            price: 15,
             blurb: "For tutors who run several batches at once.",
             features: [
                 "Unlimited tuition posts",
@@ -37,7 +37,7 @@ export const PLANS = {
         },
         pro: {
             name: "Pro Student",
-            price: 1000,
+            price: 10,
             blurb: "Stand out when tutors review their applicants.",
             features: [
                 "Priority placement in applicant lists",
