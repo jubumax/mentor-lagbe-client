@@ -30,9 +30,9 @@ export default function NotFoundState({
                             Back to home
                         </Button>
 
-                        <Button href="/tuitions" variant="outline" size="lg">
+                        {/* <Button href="/tuitions" variant="outline" size="lg">
                             Browse tuitions
-                        </Button>
+                        </Button> */}
                     </div>
                 </div>
             </div>

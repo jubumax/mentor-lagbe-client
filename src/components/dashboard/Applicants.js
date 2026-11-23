@@ -117,6 +117,16 @@ export default function Applicants() {
     const columns = [
         { key: "student", header: "Student", render: (row) => <StudentCell row={row} /> },
         {
+            key: "studentPhone",
+            header: "Phone",
+            className: "whitespace-nowrap text-muted",
+            render: (row) => (
+                <a href={`tel:${row.studentPhone}`} className="hover:text-link hover:underline">
+                    {row.studentPhone}
+                </a>
+            ),
+        },
+        {
             key: "tuitionTitle",
             header: "Tuition",
             render: (row) => (
@@ -128,10 +138,22 @@ export default function Applicants() {
         },
         { key: "preferredSchedule", header: "Preferred schedule", className: "text-muted" },
         {
-            key: "createdAt",
+            key: "studentNote",
+            header: "Note",
+            render: (row) =>
+                row.studentNote ? (
+                    <p title={row.studentNote} className="line-clamp-2 max-w-56 text-muted">
+                        {row.studentNote}
+                    </p>
+                ) : (
+                    <span className="text-muted">-</span>
+                ),
+        },
+        {
+            key: "appliedAt",
             header: "Applied on",
             className: "whitespace-nowrap text-muted",
-            render: (row) => formatDate(row.createdAt),
+            render: (row) => formatDate(row.appliedAt),
         },
         { key: "status", header: "Status", render: (row) => <StatusBadge status={row.status} /> },
         {
@@ -279,8 +301,8 @@ export default function Applicants() {
                                 </dt>
 
                                 <dd>
-                                    <a href={`tel:${selected.phone}`} className="font-semibold text-link hover:underline">
-                                        {selected.phone}
+                                    <a href={`tel:${selected.studentPhone}`} className="font-semibold text-link hover:underline">
+                                        {selected.studentPhone}
                                     </a>
                                 </dd>
                             </div>
@@ -308,7 +330,7 @@ export default function Applicants() {
 
                             <div className="flex items-center justify-between gap-4 p-3">
                                 <dt className="text-muted">Applied on</dt>
-                                <dd className="font-semibold text-ink">{formatDate(selected.createdAt)}</dd>
+                                <dd className="font-semibold text-ink">{formatDate(selected.appliedAt)}</dd>
                             </div>
                         </dl>
 
@@ -316,7 +338,7 @@ export default function Applicants() {
                             <p className="text-sm font-semibold text-ink">Note from the student</p>
 
                             <p className="mt-1.5 whitespace-pre-line text-sm leading-relaxed text-muted">
-                                {selected.learningNote || "The student did not leave a note."}
+                                {selected.studentNote || "The student did not leave a note."}
                             </p>
                         </div>
 

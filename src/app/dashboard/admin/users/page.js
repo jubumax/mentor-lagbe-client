@@ -1,7 +1,7 @@
-import AdminOverview from "@/components/dashboard/AdminOverview";
+import UserManagement from "@/components/dashboard/UserManagement";
 
-export const metadata = { title: "Admin overview" };
+export const metadata = { title: "User management" };
 
-export default function AdminOverviewPage() {
-    return <AdminOverview />;
+export default function UserManagementPage() {
+    return <UserManagement />;
 }

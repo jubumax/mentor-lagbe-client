@@ -13,7 +13,7 @@ import Skeleton from "@/components/ui/Skeleton";
 import StatusBadge from "@/components/ui/StatusBadge";
 import { useApi } from "@/hooks/useApi";
 import { api, ApiError } from "@/lib/api";
-import { cn, formatDate } from "@/lib/utils";
+import { cn, formatDate, formatFee } from "@/lib/utils";
 
 
 const TABS = [
@@ -76,22 +76,31 @@ export default function MyApplications() {
                     >
                         {row.tuitionTitle}
                     </Link>
-
                     <p className="text-xs text-muted">{row.subject}</p>
                 </div>
             ),
         },
-        { key: "tutorName", header: "Tutor", className: "text-muted" },
         {
-            key: "preferredSchedule",
-            header: "Preferred schedule",
-            className: "text-muted",
+            key: "tutor",
+            header: "Tutor",
+            render: (row) => (
+                <div className="min-w-0">
+                    <p className="truncate font-medium text-ink">{row.tutorName}</p>
+                    <p className="truncate text-xs text-muted">{row.tutorEmail}</p>
+                </div>
+            ),
         },
         {
-            key: "createdAt",
+            key: "monthlyFee",
+            header: "Monthly fee",
+            className: "whitespace-nowrap font-semibold text-ink",
+            render: (row) => formatFee(row.monthlyFee),
+        },
+        {
+            key: "appliedAt",
             header: "Applied on",
             className: "whitespace-nowrap text-muted",
-            render: (row) => formatDate(row.createdAt),
+            render: (row) => formatDate(row.appliedAt),
         },
         {
             key: "status",

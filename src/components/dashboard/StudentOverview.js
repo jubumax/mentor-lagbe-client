@@ -65,10 +65,10 @@ const RECENT_COLUMNS = [
     },
     { key: "tutorName", header: "Tutor", className: "text-muted" },
     {
-        key: "createdAt",
+        key: "appliedAt",
         header: "Applied on",
         className: "whitespace-nowrap text-muted",
-        render: (row) => formatDate(row.createdAt),
+        render: (row) => formatDate(row.appliedAt),
     },
     {
         key: "status",
