@@ -1,4 +1,5 @@
 import {
+    Bookmark,
     BookOpen,
     CirclePlus,
     ClipboardList,
@@ -13,6 +14,7 @@ export const DASHBOARD_NAV = {
     student: [
         { label: "Overview", href: "/dashboard/student", icon: LayoutDashboard, exact: true },
         { label: "My applications", href: "/dashboard/student/my-applications", icon: ClipboardList },
+        { label: "Saved tuitions", href: "/dashboard/student/saved-tuitions", icon: Bookmark },
     ],
     tutor: [
         { label: "Overview", href: "/dashboard/tutor", icon: LayoutDashboard, exact: true },

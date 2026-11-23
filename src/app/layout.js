@@ -5,6 +5,7 @@ import { SITE } from "@/lib/constants";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { AuthProvider } from "@/providers/AuthProvider";
 import ToastProvider from "@/providers/ToastProvider";
+import { BookmarkProvider } from "@/providers/BookmarkProvider";
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -32,8 +33,10 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
 
           <AuthProvider>
-            {children}
-            <ToastProvider />
+            <BookmarkProvider>
+              {children}
+              <ToastProvider />
+            </BookmarkProvider>
           </AuthProvider>
 
         </ThemeProvider>

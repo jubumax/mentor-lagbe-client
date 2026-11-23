@@ -15,6 +15,7 @@ import TutorSummary from "@/components/tuition/TutorSummary";
 import ApplyPanel from "@/components/tuition/ApplyPanel";
 import { api, ApiError } from "@/lib/api";
 import { formatDate, formatFee } from "@/lib/utils";
+import BookmarkButton from "@/components/tuition/BookmarkButton";
 
 
 async function getTuition(id) {
@@ -155,6 +156,10 @@ export default async function TuitionDetailsPage({ params }) {
 
                     <div className="mt-6">
                         <ApplyPanel tuitionId={tuition._id} title={tuition.title} />
+                    </div>
+
+                    <div className="mt-3">
+                        <BookmarkButton tuitionId={tuition._id} variant="full" />
                     </div>
                 </aside>
             </div>

@@ -11,6 +11,7 @@ import Badge from "@/components/ui/Badge";
 import Button from "@/components/ui/Button";
 import Avatar from "@/components/ui/Avatar";
 import { formatFee } from "@/lib/utils";
+import BookmarkButton from "@/components/tuition/BookmarkButton";
 
 
 export default function TuitionCard({ tuition }) {
@@ -53,6 +54,8 @@ export default function TuitionCard({ tuition }) {
                     <ModeIcon className="size-3.5 text-link" aria-hidden="true" />
                     {mode}
                 </span>
+
+                <BookmarkButton tuitionId={_id} className="absolute right-3 top-3" />
             </div>
 
             <div className="flex flex-1 flex-col px-2 pb-1 pt-4">
