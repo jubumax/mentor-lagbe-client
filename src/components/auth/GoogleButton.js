@@ -40,6 +40,7 @@ export default function GoogleButton({ redirectTo = "/" }) {
             const { error } = await authClient.signIn.social({
                 provider: "google",
                 callbackURL: `${window.location.origin}${redirectTo}`,
+                errorCallbackURL: `${window.location.origin}/sign-in`,
             });
 
             if (error) {
