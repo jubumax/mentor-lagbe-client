@@ -2,6 +2,7 @@ import { ChevronDown } from "lucide-react";
 import Container from "@/components/ui/Container";
 import SectionHeading from "@/components/ui/SectionHeading";
 import PricingPlans from "@/components/pricing/PricingPlans";
+import FaqAccordion from "@/components/pricing/FaqAccordion";
 
 export const metadata = { title: "Pricing" };
 
@@ -51,24 +52,7 @@ export default function PricingPage() {
                 <Container className="max-w-3xl">
                     <h2 className="text-center text-2xl sm:text-3xl">Questions about Pro</h2>
 
-                    <div className="mt-8 space-y-3">
-                        {FAQ.map(({ question, answer }) => (
-                            <details
-                                key={question}
-                                className="group rounded-card border border-line bg-surface p-5 shadow-card"
-                            >
-                                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-semibold text-ink [&::-webkit-details-marker]:hidden">
-                                    {question}
-                                    <ChevronDown
-                                        className="size-5 shrink-0 text-muted transition-transform group-open:rotate-180"
-                                        aria-hidden="true"
-                                    />
-                                </summary>
-
-                                <p className="mt-3 text-sm leading-relaxed text-muted">{answer}</p>
-                            </details>
-                        ))}
-                    </div>
+                    <FaqAccordion items={FAQ} />
                 </Container>
             </section>
         </>
